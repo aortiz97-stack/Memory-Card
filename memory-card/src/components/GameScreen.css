@@ -1,6 +1,8 @@
+html, body {
+}
 body {
-  height: 100vh;
-  width: 100vw;
+  max-height: 100vh;
+  max-width: 100vw;
 }
 
 #root {
@@ -13,7 +15,7 @@ body {
   width: 100%;
   background-color: red;
   display: grid;
-  grid-template-rows: 1fr 5fr;
+  grid-template-rows: 0.5fr 5fr;
 }
 
 #header {
@@ -60,7 +62,9 @@ p {
   align-items: center;
 }
 
+
 img {
+  object-fit: fill;
   max-width: 50%;
   max-height: 50%;
 }
