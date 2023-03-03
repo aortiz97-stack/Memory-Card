@@ -1,4 +1,16 @@
-html, body {
+@font-face {
+  font-family: SpongebobFont;
+  src: url('../fonts/SpongeboyRegular-gx2n6.otf');
+}
+/*olive-green #AEAD0D
+yellow #FFF56C
+light blue #26B9C8
+blue #0457A0
+*/
+
+* {
+  font-family: SpongebobFont, sans-serif;
+  color: white;
 }
 body {
   max-height: 100vh;
@@ -13,13 +25,13 @@ body {
 #whole-game-container {
   height: 100%;
   width: 100%;
-  background-color: red;
+  background-color: #26B9C8;
   display: grid;
   grid-template-rows: 0.5fr 5fr;
 }
 
 #header {
-  background-color: blue;
+  background-color: #0457A0;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -32,7 +44,7 @@ body {
 }
 
 #game-body {
-  background-color: purple;
+  background-color: #26B9C8;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -45,9 +57,10 @@ p {
 
 #grid-container {
   display: grid;
-  background-color: green;
-  height: 100%;
-  width: 100%;
+  background-color: #AEAD0D;
+  box-shadow: 3.0px 6.1px 6.1px hsl(0deg 0% 0% / 0.41);
+  height: 50%;
+  width: 50%;
   grid-template-rows: 1fr 1fr 1fr 1fr;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 10px;
@@ -56,10 +69,13 @@ p {
 }
 
 .grid-tile {
-  background-color: pink;
+  min-width: 0;
+  min-height: 0;
+  background-color: #FFF56C;
   display: flex;
   justify-content: center;
   align-items: center;
+  box-shadow: 3.0px 6.1px 6.1px hsl(0deg 0% 0% / 0.41);
 }
 
 
