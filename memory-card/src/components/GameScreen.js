@@ -15,25 +15,43 @@ import larryTheLobster from '../images/larry_the_lobster.png';
 import bubbleBass from '../images/bubble_bass.png';
 import squilliam from '../images/squilliam.png';
 import fred from '../images/fred.png';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const GameScreen = () => {
-  const images = [{image: gary, alt: "Gary the Snail"},
-                  {image: plankton, alt: "Sheldon Plankton"},
-                  {image: karen, alt: "Computer Wife Karen"},
-                  {image: mrKrabs, alt: "Mr. Krabs, owner of Krusty Krab"},
-                  {image: sandy, alt: "Sandy Cheeks, the Texan Squirrel"},
-                  {image: spongebob, alt: "Spongebob Squarepants, fry cook"},
-                  {image: patrick, alt: "Patrick Star, best friend"},
-                  {image: squidward, alt: "Squidward Tentacles, neighbor"},
-                  {image: mrsPuff, alt: "Mrs. Puff, boating school teacher"},
-                  {image: pearl, alt: "Pearl, daughter of Mr. Krabs"},
-                  {image: mermaidManBarnacleBoy, alt: "Mermaid Man & Barnacle Boy, heroes"},
-                  {image: theFlyingDutchman, alt: "The Flying Dutchman, ghost"},
-                  {image: larryTheLobster, alt: "Larry the Lobster, beach hunk"},
-                  {image: bubbleBass, alt: "Bubble Bass, pickle hoarder"},
-                  {image: squilliam, alt: "Squilliam Fancyson"},
-                  {image: fred, alt: "Fred, my leg!"}]
+  const images = [{image: gary, alt: "Gary the Snail", id:'gary'},
+                  {image: plankton, alt: "Sheldon Plankton", id:'plankton'},
+                  {image: karen, alt: "Computer Wife Karen", id:'karen'},
+                  {image: mrKrabs, alt: "Mr. Krabs, owner of Krusty Krab", id:'mrKrabs'},
+                  {image: sandy, alt: "Sandy Cheeks, the Texan Squirrel", id: 'sandy'},
+                  {image: spongebob, alt: "Spongebob Squarepants, fry cook", id:'spongebob'},
+                  {image: patrick, alt: "Patrick Star, best friend", id: 'patrick'},
+                  {image: squidward, alt: "Squidward Tentacles, neighbor", id:'squidward'},
+                  {image: mrsPuff, alt: "Mrs. Puff, boating school teacher", id:'mrsPuff'},
+                  {image: pearl, alt: "Pearl, daughter of Mr. Krabs", id:'pearl'},
+                  {image: mermaidManBarnacleBoy, alt: "Mermaid Man & Barnacle Boy, heroes", id:'mermaidManBarnacleBoy'},
+                  {image: theFlyingDutchman, alt: "The Flying Dutchman, ghost", id:'theFlyingDutchman'},
+                  {image: larryTheLobster, alt: "Larry the Lobster, beach hunk", id:'larryTheLobster'},
+                  {image: bubbleBass, alt: "Bubble Bass, pickle hoarder", id:'bubbleBass'},
+                  {image: squilliam, alt: "Squilliam Fancyson", id:'squilliam'},
+                  {image: fred, alt: "Fred, my leg!", id:'fred'}]
+
+
+  const [alreadyClicked, setAlreadyClicked] = useState([]);
+
+  useEffect(
+      () => {
+        const handleClick = (e) => {
+          if (e.target.id !== 'grid-container') {
+            setAlreadyClicked(alreadyClicked.concat(e.target.id));
+            console.log(`${e.target.id} was added to alreadyClicked`);
+          }
+        };
+        const gridContainer = document.querySelector('#grid-container');
+        gridContainer.addEventListener('click', handleClick);
+        return () => {gridContainer.removeEventListener('click', handleClick)};
+      }, 
+      [alreadyClicked]);
+
   return(
     <div id="whole-game-container">
     <div id="header">
@@ -44,55 +62,55 @@ const GameScreen = () => {
       </div>
     </div>
     <div id="game-body">
-      <p>Choose a card, but do not choose the same one in the next round</p>
+      <p>Choose a card, but do not choose the same one in the next round.</p>
       <div id="grid-container">
         <div className="grid-tile">
-            <img src={images[0].image} alt={images[0].alt}/>
+            <img src={images[0].image} alt={images[0].alt} id={images[0].id}/>
         </div>
         <div className="grid-tile">
-       <img src={images[1].image} alt={images[1].alt}/>
+       <img src={images[1].image} alt={images[1].alt} id={images[1].id}/>
         </div>
         <div className="grid-tile">
-        <img src={images[2].image} alt={images[2].alt}/>
+        <img src={images[2].image} alt={images[2].alt} id={images[2].id}/>
         </div>
         <div className="grid-tile">
-            <img src={images[3].image} alt={images[3].alt}></img>
+            <img src={images[3].image} alt={images[3].alt} id={images[3].id}></img>
         </div>
         <div className="grid-tile">
-        <img src={images[4].image} alt={images[4].alt}></img>
+        <img src={images[4].image} alt={images[4].alt} id={images[4].id}></img>
         </div>
         <div className="grid-tile">
-        <img src={images[5].image} alt={images[5].alt}></img>
+        <img src={images[5].image} alt={images[5].alt} id={images[5].id}></img>
         </div>
         <div className="grid-tile">
-        <img src={images[6].image} alt={images[6].alt}></img>
+        <img src={images[6].image} alt={images[6].alt} id={images[6].id}></img>
         </div>
         <div className="grid-tile">
-        <img src={images[7].image} alt={images[7].alt}></img>
+        <img src={images[7].image} alt={images[7].alt} id={images[7].id}></img>
         </div>
         <div className="grid-tile">
-        <img src={images[8].image} alt={images[8].alt}></img>
+        <img src={images[8].image} alt={images[8].alt} id={images[8].id}></img>
         </div>
         <div className="grid-tile">
-        <img src={images[9].image} alt={images[9].alt}></img>
+        <img src={images[9].image} alt={images[9].alt} id={images[9].id}></img>
         </div>
         <div className="grid-tile">
-        <img src={images[10].image} alt={images[10].alt}></img>
+        <img src={images[10].image} alt={images[10].alt} id={images[10].id}></img>
         </div>
         <div className="grid-tile">
-        <img src={images[11].image} alt={images[11].alt}></img>
+        <img src={images[11].image} alt={images[11].alt} id={images[11].id}></img>
         </div>
         <div className="grid-tile">
-        <img src={images[12].image} alt={images[12].alt}></img>
+        <img src={images[12].image} alt={images[12].alt} id={images[12].id}></img>
         </div>
         <div className="grid-tile">
-        <img src={images[13].image} alt={images[13].alt}></img>
+        <img src={images[13].image} alt={images[13].alt} id={images[13].id}></img>
         </div>
         <div className="grid-tile">
-        <img src={images[14].image} alt={images[14].alt}></img>
+        <img src={images[14].image} alt={images[14].alt} id={images[14].id}></img>
         </div>
         <div className="grid-tile">
-        <img src={images[15].image} alt={images[15].alt}></img>
+        <img src={images[15].image} alt={images[15].alt} id={images[15].id}></img>
         </div>
       </div>
     </div>
