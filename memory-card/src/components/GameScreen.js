@@ -19,7 +19,7 @@ import { useEffect, useState } from 'react';
 import LoserScreen from './LoserScreen';
 
 const GameScreen = ({changeScreen, initialBestScore}) => {
-  const images = [{image: gary, alt: "Gary the Snail", id:'gary'},
+  const imageList = [{image: gary, alt: "Gary the Snail", id:'gary'},
                   {image: plankton, alt: "Sheldon Plankton", id:'plankton'},
                   {image: karen, alt: "Computer Wife Karen", id:'karen'},
                   {image: mrKrabs, alt: "Mr. Krabs, owner of Krusty Krab", id:'mrKrabs'},
@@ -35,12 +35,24 @@ const GameScreen = ({changeScreen, initialBestScore}) => {
                   {image: bubbleBass, alt: "Bubble Bass, pickle hoarder", id:'bubbleBass'},
                   {image: squilliam, alt: "Squilliam Fancyson", id:'squilliam'},
                   {image: fred, alt: "Fred, my leg!", id:'fred'}]
+    
+  const images = [];
 
 
   const [alreadyClicked, setAlreadyClicked] = useState([]);
   const [score, setScore] = useState(0);
   const [bestScore, setBestScore] = useState(initialBestScore);
 
+  
+    console.log('hohoho')
+    while (images.length < 16) {
+      const randomIndex = Math.floor(Math.random() * 16);
+      const filteredArr = images.filter((obj) => obj.id === imageList[randomIndex].id);
+      if (filteredArr.length === 0) {
+          images.push(imageList[randomIndex]);
+      }
+    }
+  
 
   useEffect(
       () => {
