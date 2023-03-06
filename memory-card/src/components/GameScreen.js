@@ -38,6 +38,8 @@ const GameScreen = ({changeScreen}) => {
 
 
   const [alreadyClicked, setAlreadyClicked] = useState([]);
+  const [score, setScore] = useState(0);
+  const [bestScore, setBestScore] = useState(0);
 
 
   useEffect(
@@ -45,8 +47,7 @@ const GameScreen = ({changeScreen}) => {
         const gridContainer = document.querySelector('#grid-container');
 
         const setLoserScreen = () => {
-          //console.log(`props ${JSON.stringify(props)}`)
-          changeScreen(<LoserScreen/>);
+          changeScreen(<LoserScreen score={score} bestScore={bestScore} setBestScore={(e) => setBestScore(e)}/>);
         }
         const handleClick = (e) => {
           if (alreadyClicked.includes(e.target.id)) {
@@ -54,6 +55,7 @@ const GameScreen = ({changeScreen}) => {
           } else {
             if (e.target.id !== 'grid-container' && e.target.id !== undefined && e.target.id !== "") {
                 setAlreadyClicked(alreadyClicked.concat(e.target.id));
+                setScore(score + 1);
                 console.log(`${e.target.id} was added to alreadyClicked`);
               }
           }
@@ -69,8 +71,8 @@ const GameScreen = ({changeScreen}) => {
     <div id="header">
       <h2>Memory Card Game</h2>
       <div id="score-board">
-        <h4>Score: 0</h4>
-        <h4>Best Score: 0</h4>
+        <h4>Score: {score}</h4>
+        <h4>Best Score: {bestScore}</h4>
       </div>
     </div>
     <div id="game-body">
