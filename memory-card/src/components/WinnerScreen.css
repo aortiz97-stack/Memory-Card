@@ -1,0 +1,47 @@
+body {
+    height: 100vh;
+    width: 100vw;
+}
+
+#root {
+    height: 100%;
+    width: 100%;
+}
+
+#whole-winner-screen-container {
+    background-image: url(../images/spongebob-water-back.jpeg);
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#whole-winner-screen-container img {
+    max-width: 50%;
+    max-height: 50%;
+    margin-bottom: 20px;
+  }
+
+  #whole-winner-screen-container p {
+      margin: 5px;
+      color: #744700;
+  }
+
+  #whole-winner-screen-container h1, #whole-winner-screen-container button {
+    color: #FFF56C
+}
+
+#whole-winner-screen-container button {
+    background-color: #AEAD0D;
+}
+
+  button {
+    margin-top: 10px;
+  }
+
+  .title-card-title {
+      font-size: 50px;
+  }

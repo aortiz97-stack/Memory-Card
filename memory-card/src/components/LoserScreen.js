@@ -1,7 +1,7 @@
 import GameScreen from './GameScreen';
 import './LoserScreen.css';
 import caveSponge from '../images/caveman-sponge.png'
-import {useEffect, useState} from 'react';
+import {useEffect} from 'react';
 
 
 const LoserScreen = ({score, changeScreen, bestScore}) => {

@@ -17,6 +17,7 @@ import squilliam from '../images/squilliam.png';
 import fred from '../images/fred.png';
 import { useEffect, useState } from 'react';
 import LoserScreen from './LoserScreen';
+import WinnerScreen from './WinnerScreen';
 
 const GameScreen = ({changeScreen, initialBestScore}) => {
   const imageList = [{image: gary, alt: "Gary the Snail", id:'gary'},
@@ -43,15 +44,14 @@ const GameScreen = ({changeScreen, initialBestScore}) => {
   const [score, setScore] = useState(0);
   const [bestScore, setBestScore] = useState(initialBestScore);
 
-  
-    console.log('hohoho')
-    while (images.length < 16) {
-      const randomIndex = Math.floor(Math.random() * 16);
-      const filteredArr = images.filter((obj) => obj.id === imageList[randomIndex].id);
-      if (filteredArr.length === 0) {
-          images.push(imageList[randomIndex]);
-      }
+
+  while (images.length < 16) {
+    const randomIndex = Math.floor(Math.random() * 16);
+    const filteredArr = images.filter((obj) => obj.id === imageList[randomIndex].id);
+    if (filteredArr.length === 0) {
+        images.push(imageList[randomIndex]);
     }
+  }
   
 
   useEffect(
@@ -60,11 +60,7 @@ const GameScreen = ({changeScreen, initialBestScore}) => {
 
         const setLoserScreen = () => {
             if (score > bestScore) {
-              console.log(`it entered!`)
-              console.log(`score ${score}`)
-              console.log(`bestScore before ${bestScore}`)
               setBestScore(score)
-              console.log(`bestScore after ${bestScore}`)
               changeScreen(<LoserScreen score={score} changeScreen={(e) => changeScreen(e)} bestScore={score}/>);
             } else {
                 changeScreen(<LoserScreen score={score} changeScreen={(e) => changeScreen(e)} bestScore={bestScore}/>);
@@ -77,8 +73,10 @@ const GameScreen = ({changeScreen, initialBestScore}) => {
             if (e.target.id !== 'grid-container' && e.target.id !== undefined && e.target.id !== "") {
                 setAlreadyClicked(alreadyClicked.concat(e.target.id));
                 setScore(score + 1);
-                console.log(`${e.target.id} was added to alreadyClicked`);
+                if (score + 1 === 16) {
+                  changeScreen(<WinnerScreen changeScreen={(e) => changeScreen(e)}/>)
               }
+            }
           }
         };
         gridContainer.addEventListener('click', handleClick);
