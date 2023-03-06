@@ -47,7 +47,7 @@ const GameScreen = ({changeScreen}) => {
         const gridContainer = document.querySelector('#grid-container');
 
         const setLoserScreen = () => {
-          changeScreen(<LoserScreen score={score} bestScore={bestScore} setBestScore={(e) => setBestScore(e)}/>);
+          changeScreen(<LoserScreen score={score} bestScore={bestScore} setBestScore={(e) => setBestScore(e)} changeScreen={(e) => changeScreen(e)}/>);
         }
         const handleClick = (e) => {
           if (alreadyClicked.includes(e.target.id)) {
