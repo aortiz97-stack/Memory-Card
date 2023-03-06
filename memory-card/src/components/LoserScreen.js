@@ -1,26 +1,23 @@
 import GameScreen from './GameScreen';
 import './LoserScreen.css';
 import caveSponge from '../images/caveman-sponge.png'
-import {useEffect} from 'react';
+import {useEffect, useState} from 'react';
 
 
-const LoserScreen = ({score, bestScore, setBestScore, changeScreen}) => {
+const LoserScreen = ({score, changeScreen, bestScore}) => {
 
     useEffect(() => {
-        if (score > bestScore) {
-            setBestScore(score);
-        }
 
         const button = document.querySelector('button');
 
         const handleClick = () => {
-          changeScreen(<GameScreen changeScreen={(e) => changeScreen(e)}/>);
+            changeScreen(<GameScreen changeScreen={(e) => changeScreen(e)} initialBestScore={bestScore}/>);
         };
 
         button.addEventListener('click', handleClick);
        
 
-    }, []);
+    });
 
     return (
       <div id='whole-loser-screen-container'>

@@ -18,7 +18,7 @@ import fred from '../images/fred.png';
 import { useEffect, useState } from 'react';
 import LoserScreen from './LoserScreen';
 
-const GameScreen = ({changeScreen}) => {
+const GameScreen = ({changeScreen, initialBestScore}) => {
   const images = [{image: gary, alt: "Gary the Snail", id:'gary'},
                   {image: plankton, alt: "Sheldon Plankton", id:'plankton'},
                   {image: karen, alt: "Computer Wife Karen", id:'karen'},
@@ -39,7 +39,7 @@ const GameScreen = ({changeScreen}) => {
 
   const [alreadyClicked, setAlreadyClicked] = useState([]);
   const [score, setScore] = useState(0);
-  const [bestScore, setBestScore] = useState(0);
+  const [bestScore, setBestScore] = useState(initialBestScore);
 
 
   useEffect(
@@ -47,7 +47,16 @@ const GameScreen = ({changeScreen}) => {
         const gridContainer = document.querySelector('#grid-container');
 
         const setLoserScreen = () => {
-          changeScreen(<LoserScreen score={score} bestScore={bestScore} setBestScore={(e) => setBestScore(e)} changeScreen={(e) => changeScreen(e)}/>);
+            if (score > bestScore) {
+              console.log(`it entered!`)
+              console.log(`score ${score}`)
+              console.log(`bestScore before ${bestScore}`)
+              setBestScore(score)
+              console.log(`bestScore after ${bestScore}`)
+              changeScreen(<LoserScreen score={score} changeScreen={(e) => changeScreen(e)} bestScore={score}/>);
+            } else {
+                changeScreen(<LoserScreen score={score} changeScreen={(e) => changeScreen(e)} bestScore={bestScore}/>);
+            }
         }
         const handleClick = (e) => {
           if (alreadyClicked.includes(e.target.id)) {
@@ -62,7 +71,9 @@ const GameScreen = ({changeScreen}) => {
         };
         gridContainer.addEventListener('click', handleClick);
 
-        return () => {gridContainer.removeEventListener('click', handleClick)};
+        return () => {
+            gridContainer.removeEventListener('click', handleClick)
+        };
       }, 
       [alreadyClicked]);
 
