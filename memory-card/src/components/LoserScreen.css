@@ -1,0 +1,38 @@
+body {
+    height: 100vh;
+    width: 100vw;
+}
+
+#root {
+    height: 100%;
+    width: 100%;
+}
+
+#whole-loser-screen-container {
+    background-image: url(../images/lose-background-image.png);
+    height: 100%;
+    width: 100%;
+    background-color: #192841;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#whole-loser-screen-container img {
+    max-width: 25%;
+    max-height: 25%;
+    margin-bottom: 20px;
+  }
+
+  #whole-loser-screen-container p {
+      margin: 5px;
+  }
+
+  button {
+    margin-top: 10px;
+  }
+
+  .title-card-title {
+      font-size: 50px;
+  }

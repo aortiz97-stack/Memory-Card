@@ -1,11 +1,16 @@
 import GameScreen from './components/GameScreen';
-import LoserScreen from './components/LoserScreen';
-import { useState } from 'react';
+import './App.css';
+import { useState, useEffect } from 'react';
 
 const App = () => {
-  const [currDisplay, setCurrDisplay] = useState(<GameScreen/>)
+  const [currDisplay, setCurrDisplay] = useState()
+
+  useEffect(() => {
+    setCurrDisplay(<GameScreen changeScreen={(e)=> setCurrDisplay(e)}/>)
+  }, []);
+
   return (
-    <GameScreen/>
+    currDisplay
   );
 }
 

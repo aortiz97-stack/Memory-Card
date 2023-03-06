@@ -1,0 +1,22 @@
+@font-face {
+    font-family: SpongebobFont;
+    src: url('./fonts/SpongeboyRegular-gx2n6.otf');
+ }
+
+:root {
+    color: white;
+}
+
+* {
+    font-family: SpongebobFont, sans-serif;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+  }
+  
+#root {
+    height: 100%;
+    width: 100%;
+}

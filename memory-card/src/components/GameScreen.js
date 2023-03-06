@@ -18,7 +18,7 @@ import fred from '../images/fred.png';
 import { useEffect, useState } from 'react';
 import LoserScreen from './LoserScreen';
 
-const GameScreen = () => {
+const GameScreen = ({changeScreen}) => {
   const images = [{image: gary, alt: "Gary the Snail", id:'gary'},
                   {image: plankton, alt: "Sheldon Plankton", id:'plankton'},
                   {image: karen, alt: "Computer Wife Karen", id:'karen'},
@@ -39,11 +39,14 @@ const GameScreen = () => {
 
   const [alreadyClicked, setAlreadyClicked] = useState([]);
 
+
   useEffect(
       () => {
         const gridContainer = document.querySelector('#grid-container');
 
         const setLoserScreen = () => {
+          //console.log(`props ${JSON.stringify(props)}`)
+          changeScreen(<LoserScreen/>);
         }
         const handleClick = (e) => {
           if (alreadyClicked.includes(e.target.id)) {

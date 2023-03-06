@@ -1,26 +1,8 @@
-@font-face {
-  font-family: SpongebobFont;
-  src: url('../fonts/SpongeboyRegular-gx2n6.otf');
-}
 /*olive-green #AEAD0D
 yellow #FFF56C
 light blue #26B9C8
 blue #0457A0
 */
-
-* {
-  font-family: SpongebobFont, sans-serif;
-  color: white;
-}
-body {
-  max-height: 100vh;
-  max-width: 100vw;
-}
-
-#root {
-  height: 100%;
-  width: 100%;
-}
 
 #whole-game-container {
   height: 100%;
