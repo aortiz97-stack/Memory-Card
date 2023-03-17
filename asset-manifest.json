@@ -1,0 +1,33 @@
+{
+  "files": {
+    "main.css": "/static/css/main.2a93a8c5.css",
+    "main.js": "/static/js/main.12d464d1.js",
+    "static/media/mrs_puff.png": "/static/media/mrs_puff.36f2a64b75dd193b5cd8.png",
+    "static/media/happy-sponge.png": "/static/media/happy-sponge.4fbbb7d906b5a3fe8089.png",
+    "static/media/spongebob.png": "/static/media/spongebob.461ac9f1bbe5a46bb816.png",
+    "static/media/mr_krabs.png": "/static/media/mr_krabs.9448e7a32fff862b0542.png",
+    "static/media/patrick.png": "/static/media/patrick.195409d79f1bb9a025b3.png",
+    "static/media/lose-background-image.png": "/static/media/lose-background-image.8e24b6645d5b006a1199.png",
+    "static/media/fred.png": "/static/media/fred.92b8c6bc9129e42ac0de.png",
+    "static/media/squidward.png": "/static/media/squidward.8ddb79a1aa4ce174f722.png",
+    "static/media/caveman-sponge.png": "/static/media/caveman-sponge.d62da4e15711a86730fe.png",
+    "static/media/larry_the_lobster.png": "/static/media/larry_the_lobster.761d27d86bf9fae9d661.png",
+    "static/media/gary.png": "/static/media/gary.6e1d75fb8e9ef8a3a5c6.png",
+    "static/media/spongebob-water-back.jpeg": "/static/media/spongebob-water-back.160800d80b5a88d49e3b.jpeg",
+    "static/media/pearl.png": "/static/media/pearl.381de7efa406217b9bf4.png",
+    "static/media/mermaid-man-barnacle-boy.png": "/static/media/mermaid-man-barnacle-boy.b11c824f45abecab030e.png",
+    "static/media/SpongeboyRegular-gx2n6.otf": "/static/media/SpongeboyRegular-gx2n6.7127e753e63e0a5a12f6.otf",
+    "static/media/sandy.png": "/static/media/sandy.c000aa7c937680038603.png",
+    "static/media/plankton.png": "/static/media/plankton.af7afe24e16626a1da1e.png",
+    "static/media/bubble_bass.png": "/static/media/bubble_bass.1530c3956962a5db431f.png",
+    "static/media/the_flying_dutchman.png": "/static/media/the_flying_dutchman.94733ffbd6c18930c9ff.png",
+    "static/media/karen.png": "/static/media/karen.d3e488658a24882cec8d.png",
+    "index.html": "/index.html",
+    "main.2a93a8c5.css.map": "/static/css/main.2a93a8c5.css.map",
+    "main.12d464d1.js.map": "/static/js/main.12d464d1.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2a93a8c5.css",
+    "static/js/main.12d464d1.js"
+  ]
+}
